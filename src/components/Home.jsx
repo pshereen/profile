@@ -1,3 +1,5 @@
+import womanWorking from '../assets/woman-working.jpg';
+
 export default function Home({ scrollTo, projectsRef }) {
   const scrollToAbout = () => {
     const aboutSection = document.getElementById("about");
@@ -32,7 +34,7 @@ export default function Home({ scrollTo, projectsRef }) {
 
       <div className="absolute left-[66.6667%] top-1/2 -translate-x-1/2 -translate-y-1/2">
         <img
-          src="/src/assets/woman-working.jpg"
+          src={womanWorking}
           alt="Illustration"
           className="w-64 h-64 object-cover rounded-xl shadow-xl border-4 border-white scale-x-[-1]"
           />
