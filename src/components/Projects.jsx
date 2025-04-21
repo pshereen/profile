@@ -4,6 +4,7 @@ import ubereats from '../assets/UberEats.png';
 import reactLogo from '../assets/react.svg';
 import typescriptLogo from '../assets/TypeScript.svg';
 import tailwindLogo from '../assets/Tailwind CSS.svg';
+import mongoDBLogo from '../assets/MongoDB.svg';
 import githubIcon from '../assets/GitHub.svg';
 
 export default function Projects() {
@@ -156,6 +157,7 @@ export default function Projects() {
                 <img src={reactLogo} alt="React" className="w-6 h-6" title="React" />
                 <img src={typescriptLogo} alt="TypeScript" className="w-6 h-6" title="TypeScript" />
                 <img src={tailwindLogo} alt="Tailwind CSS" className="w-6 h-6" title="Tailwind CSS" />
+                <img src={mongoDBLogo} alt="MongoDB" className="w-6 h-6" title="MongoDB" />
               </div>
             </div>
           </div>
