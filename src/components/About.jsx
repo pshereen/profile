@@ -25,7 +25,7 @@ export default function About({ scrollTo, projectsRef }) {
       </span>
     </h3>
     <p className="mt-4 text-zinc-600 font-mono">
-      Skilled in React.js, Vue.js, HTML, CSS, JavaScript, and Tailwind CSS to build fast, responsive, and modern UIs.
+      Skilled in React.js, TypeScript, and Redux Toolkit to build fast, responsive, and collaborative UIs. Experienced with SSE streaming, Plate.js editor, and modern styling frameworks like Tailwind CSS and CSS3 for scalable, maintainable frontends.
     </p>
   </div>
 
@@ -38,7 +38,7 @@ export default function About({ scrollTo, projectsRef }) {
       </span>
     </h3>
     <p className="mt-4 text-zinc-600 font-mono">
-      Experience building full-stack applications with Node.js, Express, REST APIs, MongoDB, PostgreSQL, and MySQL.
+      Hands-on experience building microservices-based applications using Python (Quart/FastAPI) and Node.js, with data layers in PostgreSQL, MongoDB, and pgvector. Experienced in integrating Azure OpenAI and LangGraph AI agents into multi-tenant document and RAG pipelines.
     </p>
   </div>
 
@@ -52,7 +52,7 @@ export default function About({ scrollTo, projectsRef }) {
       & Architecture
     </h3>
     <p className="mt-4 text-zinc-600 font-mono">
-      Proficient in designing RESTful APIs and integrating backend services for scalable, maintainable web applications.
+      Proficient in designing and integrating RESTful APIs for scalable web applications. Implemented CI/CD pipelines with Azure DevOps to automate builds, testing, and deployments across environments, ensuring reliable and consistent releases.
     </p>
   </div>
 </div>
