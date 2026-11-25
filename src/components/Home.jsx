@@ -23,8 +23,8 @@ export default function Home({ scrollTo, projectsRef, experienceRef }) {
           <button type="button" onClick={() => scrollTo(experienceRef)} className="rounded-lg border border-white/70 px-5 py-3 font-semibold text-white transition hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
             View experience
           </button>
-          <a href="https://github.com/pshereen" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-white/70 px-5 py-3 font-semibold text-white transition hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
-            GitHub <span className="sr-only">(opens in a new tab)</span>
+          <a href="https://www.linkedin.com/in/shereenp/" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-white/70 px-5 py-3 font-semibold text-white transition hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+            LinkedIn <span className="sr-only">(opens in a new tab)</span>
           </a>
         </div>
         <dl className="mt-12 grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3">

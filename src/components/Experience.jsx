@@ -68,7 +68,10 @@ export default function Experience() {
             <h3 className="mt-2 text-xl font-bold text-[var(--color-brand)]">Master of Science in Software Engineering</h3>
             <p className="mt-1 text-gray-600">San Jose State University · January 2021 – May 2023</p>
           </div>
-          <a href="https://github.com/pshereen" target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex rounded-lg bg-[var(--color-brand)] px-5 py-3 font-semibold text-white hover:bg-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand)] md:mt-0">View GitHub<span className="sr-only"> (opens in a new tab)</span></a>
+          <div className="mt-5 flex flex-wrap gap-3 md:mt-0">
+            <a href="https://www.linkedin.com/in/shereenp/" target="_blank" rel="noopener noreferrer" className="inline-flex rounded-lg bg-[var(--color-brand)] px-5 py-3 font-semibold text-white hover:bg-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand)]">LinkedIn<span className="sr-only"> (opens in a new tab)</span></a>
+            <a href="https://github.com/pshereen" target="_blank" rel="noopener noreferrer" className="inline-flex rounded-lg border border-indigo-200 px-5 py-3 font-semibold text-[var(--color-brand)] hover:bg-indigo-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand)]">GitHub<span className="sr-only"> (opens in a new tab)</span></a>
+          </div>
         </div>
       </div>
     </section>
