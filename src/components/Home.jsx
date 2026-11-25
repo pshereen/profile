@@ -10,7 +10,7 @@ export default function Home({ scrollTo, projectsRef, experienceRef }) {
       <div className="flex min-h-[78vh] w-full flex-col justify-center px-6 py-16 md:w-2/3 md:px-12 lg:px-20">
         <p className="mb-4 font-semibold uppercase tracking-[0.2em] text-lime-200">Frontend Software Engineer · AI Product Systems</p>
         <h1 id="home-heading" className="max-w-4xl text-4xl font-bold leading-tight md:text-6xl">
-          I build reliable product experiences—and the systems behind them.
+          I build reliable product experiences and the systems behind them.
         </h1>
         <p className="mt-6 max-w-3xl text-lg leading-relaxed text-indigo-50 md:text-xl">
           I&apos;m Shereen Punnassery. I build production React and TypeScript interfaces and the APIs,
