@@ -1,106 +1,79 @@
 const facts = [
   ['Focus', 'Reusable frontend architecture'],
-  ['Stack', 'React · TypeScript · Material UI'],
+  ['Shared packages', 'React · TypeScript · MUI'],
+  ['Host integration', 'DOM metadata · MutationObserver'],
   ['Verification', 'Vitest · Testing Library'],
+];
+
+const layers = [
+  ['Annotated product UI', 'Host components declare stable IDs, labels, roles, and state through semantic data attributes.'],
+  ['Intelligenic adapter', 'A MutationObserver discovers eligible elements and keeps visibility and enabled state current.'],
+  ['CodeNexus bridge', 'A typed adapter publishes bounded context and exposes separate discovery and activation tools.'],
+  ['Replaceable rendering', 'The core React package stays UI-library neutral while a separate package supplies MUI result views.'],
 ];
 
 export default function IntelligenicCaseStudy({ onBack }) {
   return (
     <section className="min-h-screen bg-[var(--color-brand)] px-6 py-10 md:px-12 md:py-16">
       <div className="mx-auto max-w-5xl">
-        <button type="button" onClick={onBack} className="mb-6 font-semibold text-white transition hover:text-lime-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
-          ← Back to projects
-        </button>
+        <button type="button" onClick={onBack} className="mb-6 font-semibold text-white transition hover:text-lime-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">← Back to projects</button>
 
-        <article className="space-y-8 rounded-2xl bg-white p-6 text-gray-800 shadow-xl md:p-10">
+        <article className="space-y-9 rounded-2xl bg-white p-6 text-gray-800 shadow-xl md:p-10">
           <header>
-            <p className="mb-3 font-semibold uppercase tracking-[0.18em] text-indigo-500">Frontend architecture case study</p>
-            <h1 className="text-3xl font-extrabold text-[var(--color-brand)] md:text-5xl">A reusable bridge between AI agents and product UI</h1>
-            <p className="mt-5 max-w-3xl text-lg leading-relaxed text-gray-600">
-              I designed and implemented a typed CodeNexus package that lets an AI agent discover and activate approved interface elements in a host React application—without giving it arbitrary DOM access.
-            </p>
+            <p className="mb-3 font-semibold uppercase tracking-[0.18em] text-indigo-500">Frontend platform case study</p>
+            <h1 className="text-3xl font-extrabold text-[var(--color-brand)] md:text-5xl">A safe bridge between AI intent and product UI</h1>
+            <p className="mt-5 max-w-4xl text-lg leading-relaxed text-gray-600">I designed and implemented the shared CodeNexus contracts and React packages, then built the Intelligenic host adapter that discovers approved interface elements and turns natural-language requests into visible, bounded product actions.</p>
           </header>
 
-          <dl className="grid gap-4 rounded-xl bg-indigo-50 p-5 sm:grid-cols-3">
-            {facts.map(([term, detail]) => (
-              <div key={term}><dt className="text-sm font-semibold uppercase tracking-wide text-gray-500">{term}</dt><dd className="mt-1 font-semibold text-[var(--color-brand)]">{detail}</dd></div>
-            ))}
+          <dl className="grid gap-4 rounded-xl bg-indigo-50 p-5 sm:grid-cols-2 lg:grid-cols-4">
+            {facts.map(([term, detail]) => <div key={term}><dt className="text-sm font-semibold uppercase tracking-wide text-gray-500">{term}</dt><dd className="mt-1 font-semibold text-[var(--color-brand)]">{detail}</dd></div>)}
           </dl>
 
           <section className="space-y-3">
             <h2 className="text-2xl font-bold text-[var(--color-brand)]">The product need</h2>
-            <p>
-              The agent could answer questions and work with documents, but it could not complete ordinary interface actions such as opening a tab or navigating to a product area. The solution needed to support many host experiences without coupling the shared package to one application&apos;s routes, components, or visual system.
-            </p>
-            <p>
-              Direct DOM control would have been brittle and unsafe. I chose an explicit registry: host applications decide which elements an agent can see and activate.
-            </p>
+            <p>The embedded agent could answer questions and edit documents, but it could not reliably complete ordinary interface actions such as opening a tab, navigating to a product area, or activating a work-product card. Direct arbitrary DOM control would have been brittle, difficult to test, and unsafe.</p>
+            <p>The system needed a narrow public contract that could serve different host applications without coupling the shared package to one product&apos;s routes, components, or design system.</p>
+          </section>
+
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-[var(--color-brand)]">Layered architecture</h2>
+            <ol className="space-y-3">
+              {layers.map(([title, description], index) => (
+                <li key={title} className="grid gap-3 rounded-xl border border-indigo-100 p-5 sm:grid-cols-[42px_1fr]">
+                  <span className="grid h-9 w-9 place-items-center rounded-full bg-[var(--color-brand)] font-bold text-white">{index + 1}</span>
+                  <div><h3 className="font-bold text-[var(--color-brand)]">{title}</h3><p className="mt-1 text-gray-600">{description}</p></div>
+                </li>
+              ))}
+            </ol>
           </section>
 
           <section className="space-y-3">
             <h2 className="text-2xl font-bold text-[var(--color-brand)]">My role</h2>
-            <p>
-              I authored the design specification and implementation plan, defined the public TypeScript contracts, built the React bridge and tools, created reusable Material UI renderers, added package exports and tests, and integrated the system into Intelligenic production workflows.
-            </p>
-          </section>
-
-          <section className="space-y-4">
-            <h2 className="text-2xl font-bold text-[var(--color-brand)]">System design</h2>
-            <div className="grid gap-4 md:grid-cols-2">
-              <div className="rounded-xl border border-indigo-100 p-5">
-                <h3 className="font-bold text-[var(--color-brand)]">1. Semantic element model</h3>
-                <p className="mt-2 text-gray-600">Each registered element has a stable ID, human-readable label, role, group, description, and enabled/visible state.</p>
-              </div>
-              <div className="rounded-xl border border-indigo-100 p-5">
-                <h3 className="font-bold text-[var(--color-brand)]">2. Host-owned adapter</h3>
-                <p className="mt-2 text-gray-600">A small adapter lists elements, activates one by ID, and publishes state changes while keeping product-specific logic in the host.</p>
-              </div>
-              <div className="rounded-xl border border-indigo-100 p-5">
-                <h3 className="font-bold text-[var(--color-brand)]">3. Typed agent tools</h3>
-                <p className="mt-2 text-gray-600">Separate discovery and mutation tools expose only registered actions and return structured success or failure reasons.</p>
-              </div>
-              <div className="rounded-xl border border-indigo-100 p-5">
-                <h3 className="font-bold text-[var(--color-brand)]">4. Replaceable presentation</h3>
-                <p className="mt-2 text-gray-600">Core behavior lives in the React package; default tool-result renderers live in a separate Material UI package.</p>
-              </div>
-            </div>
+            <p>I authored the design specification and implementation plan, defined the public TypeScript contracts, built the React bridge and its list/activate tools, created reusable Material UI renderers, published package exports, added an executable demo adapter, and integrated automatic discovery into Intelligenic.</p>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-2xl font-bold text-[var(--color-brand)]">Design-system thinking</h2>
+            <h2 className="text-2xl font-bold text-[var(--color-brand)]">Key engineering decisions</h2>
             <ul className="list-disc space-y-2 pl-5">
-              <li><strong>Clear boundaries:</strong> behavior, presentation, agent guidance, and host integration are separate modules.</li>
-              <li><strong>Composable API:</strong> applications implement an adapter and can use the default renderers or provide their own.</li>
-              <li><strong>Consistent states:</strong> disabled, hidden, missing, host-error, and activated outcomes have explicit contracts.</li>
-              <li><strong>Constrained flexibility:</strong> the shared abstraction serves different products while hosts retain control of available actions.</li>
-              <li><strong>Documented adoption:</strong> the package includes a reference integration, public exports, usage guidance, and an agent skill specification.</li>
+              <li><strong>Discovery and mutation remain separate:</strong> reading available actions does not silently authorize an activation.</li>
+              <li><strong>The host owns the boundary:</strong> only annotated, approved elements become visible to the agent.</li>
+              <li><strong>State stays live:</strong> MutationObserver-based discovery updates context as routes and component state change.</li>
+              <li><strong>Context stays bounded:</strong> enabled and visible actions are prioritized before a fixed cap is applied.</li>
+              <li><strong>Presentation is replaceable:</strong> applications can use the default MUI renderers or supply their own.</li>
             </ul>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-2xl font-bold text-[var(--color-brand)]">Testing and iteration</h2>
-            <p>
-              I added Vitest and Testing Library coverage for initial and changing UI context, subscription cleanup, element prioritization, tool behavior, adapter failures, and Material UI renderer output. A demo adapter served as an executable integration example.
-            </p>
-            <p>
-              Production use in Intelligenic then exposed the harder interaction details: stale actions after navigation, repeated integration prompts, deterministic routing, current-product context, work-product navigation, and safe review flows. I iterated on those behaviors based on real workflows rather than treating the package API as finished after its first release.
-            </p>
+            <h2 className="text-2xl font-bold text-[var(--color-brand)]">Testing and production iteration</h2>
+            <p>I added coverage for context updates, subscription cleanup, prioritization, tool behavior, missing elements, host failures, and renderer output. Production use then exposed harder details—stale actions after navigation, repeated prompts, current-product context, work-product navigation, and safe review flows—which I addressed through tighter state and routing contracts.</p>
           </section>
 
           <section className="space-y-3">
             <h2 className="text-2xl font-bold text-[var(--color-brand)]">Outcome</h2>
-            <p>
-              The result is a reusable frontend capability that turns conversational intent into visible, bounded product actions. CodeNexus supplies the contracts and integration primitives; host applications choose the actions, presentation, and business behavior. In Intelligenic, the same approach supports navigation, contextual forms, files, work products, document workflows, integration status, and long-running progress updates.
-            </p>
+            <p>The result is a reusable frontend capability that translates conversational intent into product-controlled actions. In Intelligenic, the pattern supports navigation, contextual forms, files, work products, document workflows, integration status, and long-running progress updates.</p>
           </section>
 
-          <section className="space-y-2 border-t border-gray-200 pt-6">
-            <h2 className="text-2xl font-bold text-[var(--color-brand)]">What I learned</h2>
-            <p>
-              Reusable frontend systems need both a narrow contract and room for product-specific expression. AI interfaces make that balance especially important: generated intent should be treated as input to a tested component and state system, not as permission to bypass it.
-            </p>
-            <p className="text-sm text-gray-500">The production repositories are private; this case study describes my engineering contributions without publishing proprietary source.</p>
-          </section>
+          <p className="border-t border-gray-200 pt-6 text-sm text-gray-500">The production repositories are private; this case study describes my engineering contributions without publishing proprietary source.</p>
         </article>
       </div>
     </section>

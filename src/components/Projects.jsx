@@ -1,49 +1,104 @@
-﻿import caseStudyImage from '../assets/woman-working.jpg';
-
 const caseStudies = [
   {
+    id: 'context-mesh',
+    eyebrow: 'Cross-repository AI system',
+    title: 'Evidence-grounded AI recommendations',
+    description: 'A production workflow spanning React reports, Python APIs, typed agent tools, recommendation validation, and code-analysis model support across four repositories.',
+    technologies: ['React', 'TypeScript', 'Python', 'Azure OpenAI'],
+    visual: 'mesh',
+  },
+  {
     id: 'bridge',
+    eyebrow: 'Frontend platform',
     title: 'CodeNexus Host-UI Bridge',
-    description: 'A reusable TypeScript and React bridge that lets AI agents discover and safely activate host-application UI, with Material UI renderers, automated tests, and a production Intelligenic integration.',
+    description: 'A reusable bridge that lets AI agents discover and safely activate approved host-application UI through typed tools and replaceable renderers.',
     technologies: ['React', 'TypeScript', 'Material UI', 'Vitest'],
-    imageAlt: 'Illustration for the CodeNexus host-UI bridge case study',
+    visual: 'bridge',
   },
   {
     id: 'product',
-    title: 'Intelligenic Product Frontend',
-    description: 'A complex React and TypeScript workspace combining streamed AI interactions, document editors, application context, integrations, role-aware routes, and resilient async workflows.',
-    technologies: ['React', 'TypeScript', 'Redux', 'Playwright'],
-    imageAlt: 'Illustration for the Intelligenic product frontend case study',
+    eyebrow: 'Stateful product experience',
+    title: 'Feature Studio AI workspace',
+    description: 'A hierarchical product workspace with normalized state, streamed generation progress, rich document workflows, and deterministic agent-assisted navigation.',
+    technologies: ['React', 'Redux Toolkit', 'SSE', 'Playwright'],
+    visual: 'studio',
+  },
+  {
+    id: 'saas',
+    eyebrow: 'Full-stack reliability',
+    title: 'SaaS onboarding and entitlements',
+    description: 'Self-service authentication, subscriptions, durable webhook processing, entitlement recovery, RBAC, analytics, and external integrations.',
+    technologies: ['Python', 'PostgreSQL', 'Stripe', 'Clerk'],
+    visual: 'saas',
   },
 ];
 
+function ProjectVisual({ variant }) {
+  if (variant === 'mesh') {
+    return (
+      <div className="project-visual bg-indigo-950" aria-hidden="true">
+        <div className="grid grid-cols-2 gap-3 text-center text-[10px] font-bold uppercase tracking-wide text-white">
+          <span className="rounded-lg bg-blue-500/80 px-2 py-3">Intelligenic</span>
+          <span className="rounded-lg bg-violet-500/80 px-2 py-3">CodeNexus</span>
+          <span className="rounded-lg bg-teal-500/80 px-2 py-3">Work products</span>
+          <span className="rounded-lg bg-amber-500/80 px-2 py-3">Code analysis</span>
+        </div>
+        <span className="absolute left-1/2 top-1/2 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-4 border-indigo-950 bg-lime-200 text-lg text-indigo-950">✦</span>
+      </div>
+    );
+  }
+
+  if (variant === 'bridge') {
+    return (
+      <div className="project-visual bg-slate-950 text-[10px] font-bold text-slate-100" aria-hidden="true">
+        <div className="flex items-center justify-between gap-2">
+          <span className="rounded-md bg-slate-700 px-3 py-3">DOM</span><span>→</span>
+          <span className="rounded-md bg-indigo-500 px-3 py-3">Adapter</span><span>→</span>
+          <span className="rounded-md bg-lime-300 px-3 py-3 text-indigo-950">Tools</span>
+        </div>
+        <div className="mt-4 h-2 rounded-full bg-slate-700"><div className="h-2 w-3/4 rounded-full bg-indigo-400" /></div>
+      </div>
+    );
+  }
+
+  if (variant === 'studio') {
+    return (
+      <div className="project-visual flex gap-3 bg-indigo-50" aria-hidden="true">
+        <div className="w-1/3 space-y-2 rounded-lg bg-indigo-950 p-3"><span className="block h-2 rounded bg-lime-200" /><span className="block h-2 w-4/5 rounded bg-indigo-300" /><span className="block h-2 w-3/5 rounded bg-indigo-300" /></div>
+        <div className="grid flex-1 grid-cols-2 gap-2"><span className="rounded-lg border border-indigo-200 bg-white" /><span className="rounded-lg border border-indigo-200 bg-white" /><span className="col-span-2 rounded-lg bg-indigo-500" /></div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="project-visual bg-emerald-950 text-[10px] font-bold text-white" aria-hidden="true">
+      <div className="flex items-center justify-between gap-2"><span className="rounded-full bg-white/15 px-3 py-2">Sign up</span><span>→</span><span className="rounded-full bg-white/15 px-3 py-2">Pay</span><span>→</span><span className="rounded-full bg-lime-200 px-3 py-2 text-emerald-950">Access</span></div>
+      <div className="mt-4 rounded-lg border border-emerald-500/50 bg-emerald-900 p-2 text-center text-emerald-100">Recoverable webhook processing</div>
+    </div>
+  );
+}
+
 export default function Projects({ onOpenCaseStudy }) {
   return (
-    <section id="projects" className="min-h-screen bg-[var(--color-brand)] px-6 py-24 text-lime-200" aria-labelledby="projects-heading">
+    <section id="projects" className="bg-[var(--color-brand)] px-6 py-24 text-lime-200" aria-labelledby="projects-heading">
       <div className="mx-auto mb-12 max-w-3xl text-center">
         <p className="mb-3 font-semibold uppercase tracking-[0.2em] text-lime-200">Selected work</p>
-        <h2 id="projects-heading" className="text-4xl font-extrabold text-white">Frontend systems built around real product needs</h2>
-        <p className="mt-5 text-lg leading-relaxed text-indigo-100">Production work spanning reusable packages, complex application state, API integration, streamed experiences, automated testing, and reliable interaction design.</p>
+        <h2 id="projects-heading" className="text-4xl font-extrabold text-white">Production systems built around real product needs</h2>
+        <p className="mt-5 text-lg leading-relaxed text-indigo-100">Case studies spanning reusable frontend platforms, AI transparency, complex application state, full-stack integrations, testing, and production reliability.</p>
       </div>
 
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 md:grid-cols-2">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2">
         {caseStudies.map((study) => (
-          <button
-            key={study.id}
-            type="button"
-            onClick={() => onOpenCaseStudy(study.id)}
-            className="flex flex-col items-stretch gap-6 rounded-2xl bg-white p-5 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-lime-200 sm:flex-row sm:items-center md:p-6"
-          >
-            <img src={caseStudyImage} alt={study.imageAlt} className="h-44 w-full rounded-lg object-cover sm:h-32 sm:w-40" />
-            <div className="flex flex-1 flex-col gap-3">
+          <button key={study.id} type="button" onClick={() => onOpenCaseStudy(study.id)} className="group flex h-full flex-col rounded-2xl bg-white p-5 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-lime-200 md:p-6">
+            <ProjectVisual variant={study.visual} />
+            <div className="mt-6 flex flex-1 flex-col gap-3">
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-indigo-500">{study.eyebrow}</p>
               <h3 className="text-xl font-bold text-[var(--color-brand)]">{study.title}</h3>
               <p className="text-sm leading-relaxed text-gray-700">{study.description}</p>
-              <ul className="flex flex-wrap gap-2" aria-label="Technologies used">
-                {study.technologies.map((technology) => (
-                  <li key={technology} className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">{technology}</li>
-                ))}
+              <ul className="mt-1 flex flex-wrap gap-2" aria-label="Technologies used">
+                {study.technologies.map((technology) => <li key={technology} className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">{technology}</li>)}
               </ul>
-              <span className="mt-1 text-sm font-semibold text-[var(--color-brand)]">Read case study →</span>
+              <span className="mt-auto pt-3 text-sm font-semibold text-[var(--color-brand)]">Read case study <span aria-hidden="true" className="inline-block transition group-hover:translate-x-1">→</span></span>
             </div>
           </button>
         ))}
