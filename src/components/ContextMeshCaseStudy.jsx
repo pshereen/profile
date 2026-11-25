@@ -23,7 +23,7 @@ export default function ContextMeshCaseStudy({ onBack }) {
             <p className="mb-3 font-semibold uppercase tracking-[0.18em] text-indigo-500">Cross-repository AI systems case study</p>
             <h1 className="text-3xl font-extrabold text-[var(--color-brand)] md:text-5xl">Making AI recommendations explainable and grounded</h1>
             <p className="mt-5 max-w-4xl text-lg leading-relaxed text-gray-600">
-              I helped turn Context Mesh scoring from an opaque result into a user-facing explanation tied to the project, file, integration, and code evidence that contributed to it. The feature crossed shared TypeScript packages, React UI, Python APIs, recommendation workers, and code-analysis services.
+              I owned major parts of Context Mesh&apos;s reporting and reliability layers, carrying changes across React, Python services, PostgreSQL, shared TypeScript contracts, automated testing, and production delivery. The experience brings evidence from Git repositories, Jira, Google Drive, uploaded files, and product context into explainable scores and recommendations.
             </p>
           </header>
 
@@ -69,12 +69,25 @@ export default function ContextMeshCaseStudy({ onBack }) {
             </ul>
           </section>
 
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-[var(--color-brand)]">Operating long-running work in production</h2>
+            <p>Context ingestion and scoring can outlive a browser request and must recover safely from timeouts, restarts, and partial failures. My work included the production controls around those workflows rather than only their final UI.</p>
+            <div className="grid gap-4 md:grid-cols-2">
+              <div className="rounded-xl border border-indigo-100 p-5"><h3 className="font-bold text-[var(--color-brand)]">Durable orchestration</h3><p className="mt-2 text-gray-600">PostgreSQL-backed dispatch, idempotent state transitions, retry and concurrency controls, stale-work protection, and indexes for high-volume preparation and cleanup paths.</p></div>
+              <div className="rounded-xl border border-indigo-100 p-5"><h3 className="font-bold text-[var(--color-brand)]">Visible operations</h3><p className="mt-2 text-gray-600">Live processing status, structured telemetry, Application Insights dashboards, failure and queue alerts, deployment verification, and operational runbooks.</p></div>
+            </div>
+            <p className="text-sm text-gray-500">The central tradeoff was accepting more background-processing complexity in exchange for fault tolerance, scalability, and a responsive user experience.</p>
+          </section>
+
           <section className="space-y-3">
             <h2 className="text-2xl font-bold text-[var(--color-brand)]">Outcome</h2>
             <p>The resulting experience gives users a traceable path from a score to its source evidence and reasoning, while giving the AI assistant access to the same constrained data. It demonstrates how I work across frontend, backend, shared packages, and model-facing code to make AI behavior understandable rather than merely impressive.</p>
           </section>
 
-          <p className="border-t border-gray-200 pt-6 text-sm text-gray-500">The production repositories are private. This case study separates my authored contributions from the broader system and does not expose proprietary source or customer data.</p>
+          <div className="flex flex-col gap-4 border-t border-gray-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-sm text-gray-500">The production repositories are private. This case study separates my authored contributions from the broader team&apos;s system and does not expose proprietary source or customer data.</p>
+            <a href="https://intelligenic.ai" target="_blank" rel="noopener noreferrer" className="shrink-0 font-semibold text-[var(--color-brand)] underline decoration-2 underline-offset-4 hover:text-indigo-700">View live product<span className="sr-only"> (opens in a new tab)</span></a>
+          </div>
         </article>
       </div>
     </section>

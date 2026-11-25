@@ -57,6 +57,7 @@ export default function IntelligenicCaseStudy({ onBack }) {
             <ul className="list-disc space-y-2 pl-5">
               <li><strong>Discovery and mutation remain separate:</strong> reading available actions does not silently authorize an activation.</li>
               <li><strong>The host owns the boundary:</strong> only annotated, approved elements become visible to the agent.</li>
+              <li><strong>Authorization stays server-side:</strong> UI eligibility never replaces tenant-scoped route policies or backend permission checks for protected resources.</li>
               <li><strong>State stays live:</strong> MutationObserver-based discovery updates context as routes and component state change.</li>
               <li><strong>Context stays bounded:</strong> enabled and visible actions are prioritized before a fixed cap is applied.</li>
               <li><strong>Presentation is replaceable:</strong> applications can use the default MUI renderers or supply their own.</li>
@@ -73,7 +74,10 @@ export default function IntelligenicCaseStudy({ onBack }) {
             <p>The result is a reusable frontend capability that translates conversational intent into product-controlled actions. In Intelligenic, the pattern supports navigation, contextual forms, files, work products, document workflows, integration status, and long-running progress updates.</p>
           </section>
 
-          <p className="border-t border-gray-200 pt-6 text-sm text-gray-500">The production repositories are private; this case study describes my engineering contributions without publishing proprietary source.</p>
+          <div className="flex flex-col gap-4 border-t border-gray-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-sm text-gray-500">The production repositories are private; this case study describes my engineering contributions without publishing proprietary source.</p>
+            <a href="https://intelligenic.ai" target="_blank" rel="noopener noreferrer" className="shrink-0 font-semibold text-[var(--color-brand)] underline decoration-2 underline-offset-4 hover:text-indigo-700">View live product<span className="sr-only"> (opens in a new tab)</span></a>
+          </div>
         </article>
       </div>
     </section>

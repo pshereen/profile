@@ -58,6 +58,17 @@ export default function About({ scrollTo, projectsRef }) {
             ))}
           </dl>
         </div>
+
+        <div className="mt-10 rounded-2xl border border-indigo-100 bg-white p-7 shadow-sm md:p-9">
+          <p className="text-sm font-bold uppercase tracking-[0.16em] text-indigo-500">AI-assisted engineering</p>
+          <h3 className="mt-3 text-2xl font-bold text-[var(--color-brand)]">I use AI to accelerate investigation—not outsource judgment</h3>
+          <p className="mt-4 max-w-4xl leading-relaxed text-gray-600">I use OpenAI Codex to trace behavior across large repositories, map affected components and APIs, surface edge cases, draft repetitive implementation work, generate test matrices, diagnose failures, and review diffs. For independent questions, I use parallel investigations selectively so frontend behavior, backend contracts, and existing coverage can be evaluated together.</p>
+          <ul className="mt-5 grid list-disc gap-3 pl-5 text-gray-600 md:grid-cols-3 md:gap-x-8">
+            <li>I define expected behavior and constraints before implementation.</li>
+            <li>I review every relevant change and challenge unnecessary abstractions.</li>
+            <li>I run tests, type checks, and complete user workflows before shipping.</li>
+          </ul>
+        </div>
         <div className="mt-10 text-center">
           <button type="button" onClick={() => scrollTo(projectsRef)} className="font-semibold text-[var(--color-brand)] underline decoration-2 underline-offset-4 hover:text-indigo-700">See these capabilities in production work</button>
         </div>

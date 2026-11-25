@@ -37,6 +37,16 @@ export default function SaaSReliabilityCaseStudy({ onBack }) {
             </div>
           </section>
 
+          <section className="space-y-3">
+            <h2 className="text-2xl font-bold text-[var(--color-brand)]">Security boundaries</h2>
+            <ul className="list-disc space-y-2 pl-5">
+              <li>Verified Stripe webhook signatures before accepting subscription events.</li>
+              <li>Kept provider refresh credentials behind authenticated backend APIs rather than exposing them to browser code.</li>
+              <li>Applied centralized route policies, subscription entitlements, RBAC, and tenant-scoped authorization to protected resources.</li>
+              <li>Tested unauthorized, expired-session, partial-failure, and replay scenarios alongside the happy path.</li>
+            </ul>
+          </section>
+
           <section className="space-y-5">
             <h2 className="text-2xl font-bold text-[var(--color-brand)]">Recovery-oriented design</h2>
             <div className="rounded-xl bg-emerald-950 p-5 text-white">
@@ -56,7 +66,10 @@ export default function SaaSReliabilityCaseStudy({ onBack }) {
             <p>The work turned onboarding and billing into an observable, recoverable product system rather than a collection of redirects and callbacks. It also demonstrates the backend, database, security, testing, and operational delivery that support the interfaces I build.</p>
           </section>
 
-          <p className="border-t border-gray-200 pt-6 text-sm text-gray-500">The production repository is private; this case study summarizes my authored contributions without exposing credentials, proprietary source, or customer information.</p>
+          <div className="flex flex-col gap-4 border-t border-gray-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-sm text-gray-500">The production repository is private; this case study summarizes my authored contributions without exposing credentials, proprietary source, or customer information.</p>
+            <a href="https://intelligenic.ai" target="_blank" rel="noopener noreferrer" className="shrink-0 font-semibold text-[var(--color-brand)] underline decoration-2 underline-offset-4 hover:text-indigo-700">View live product<span className="sr-only"> (opens in a new tab)</span></a>
+          </div>
         </article>
       </div>
     </section>

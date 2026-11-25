@@ -33,6 +33,19 @@ const caseStudies = [
   },
 ];
 
+const supportingWork = [
+  {
+    title: 'Work-Product Editor and IDE workflows',
+    description: 'Correctly scoped artifact loading, rich-text and code editing, modification previews, agent-assisted changes, downloads, file navigation, and safeguards that prevent empty state from overwriting meaningful content.',
+    technologies: ['React', 'TypeScript', 'TipTap', 'Monaco'],
+  },
+  {
+    title: 'Jira and Azure DevOps integrations',
+    description: 'OAuth-based connections, provider token renewal, ticket export and synchronization, external issue-key handling, integration status, disconnect flows, and recovery from expired credentials.',
+    technologies: ['OAuth 2.0', 'REST APIs', 'React', 'Python'],
+  },
+];
+
 function ProjectVisual({ variant }) {
   if (variant === 'mesh') {
     return (
@@ -102,6 +115,24 @@ export default function Projects({ onOpenCaseStudy }) {
             </div>
           </button>
         ))}
+      </div>
+
+      <div className="mx-auto mt-16 max-w-7xl border-t border-indigo-400/40 pt-12">
+        <div className="max-w-3xl">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-lime-200">Additional production work</p>
+          <h3 className="mt-3 text-3xl font-bold text-white">More complex workflows carried through release</h3>
+        </div>
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
+          {supportingWork.map((item) => (
+            <article key={item.title} className="rounded-2xl border border-white/15 bg-indigo-950/35 p-6 text-white">
+              <h4 className="text-xl font-bold">{item.title}</h4>
+              <p className="mt-3 leading-relaxed text-indigo-100">{item.description}</p>
+              <ul className="mt-5 flex flex-wrap gap-2" aria-label="Technologies used">
+                {item.technologies.map((technology) => <li key={technology} className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-lime-100">{technology}</li>)}
+              </ul>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
