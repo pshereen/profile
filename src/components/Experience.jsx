@@ -64,7 +64,7 @@ export default function Experience() {
 
         <div className="mt-10 rounded-2xl border border-indigo-100 p-6 md:flex md:items-center md:justify-between md:p-8">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.16em] text-indigo-500">Education</p>
+            <p className="text-sm font-bold uppercase tracking-[0.16em] text-indigo-600">Education</p>
             <h3 className="mt-2 text-xl font-bold text-[var(--color-brand)]">Master of Science in Software Engineering</h3>
             <p className="mt-1 text-gray-600">San Jose State University · January 2021 – May 2023</p>
           </div>

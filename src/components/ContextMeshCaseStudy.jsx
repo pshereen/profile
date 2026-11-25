@@ -1,3 +1,5 @@
+import EvidenceComparison from './EvidenceComparison';
+
 const facts = [
   ['Scope', '4 connected repositories'],
   ['Frontend', 'React · TypeScript'],
@@ -20,8 +22,8 @@ export default function ContextMeshCaseStudy({ onBack }) {
 
         <article className="space-y-9 rounded-2xl bg-white p-6 text-gray-800 shadow-xl md:p-10">
           <header>
-            <p className="mb-3 font-semibold uppercase tracking-[0.18em] text-indigo-500">Cross-repository AI systems case study</p>
-            <h1 className="text-3xl font-extrabold text-[var(--color-brand)] md:text-5xl">Making AI recommendations explainable and grounded</h1>
+            <p className="mb-3 font-semibold uppercase tracking-[0.18em] text-indigo-600">Cross-repository AI systems case study</p>
+            <h1 tabIndex={-1} className="text-3xl font-extrabold text-[var(--color-brand)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-500 md:text-5xl">Making AI recommendations explainable and grounded</h1>
             <p className="mt-5 max-w-4xl text-lg leading-relaxed text-gray-600">
               I owned major parts of Context Mesh&apos;s reporting and reliability layers, carrying changes across React, Python services, PostgreSQL, shared TypeScript contracts, automated testing, and production delivery. The experience brings evidence from Git repositories, Jira, Google Drive, uploaded files, and product context into explainable scores and recommendations.
             </p>
@@ -36,12 +38,24 @@ export default function ContextMeshCaseStudy({ onBack }) {
             <p>Scores and recommendations are only useful when users can understand what influenced them. The system needed to distinguish direct evidence from category-level analysis, avoid implying that unrelated sources contributed, and make the same grounded information available in both the visual report and the embedded AI assistant.</p>
           </section>
 
+          <EvidenceComparison
+            id="context-mesh-comparison"
+            title="From an unexplained score to traceable evidence"
+            description="The redesign made the contribution state visible at the point where a user decides whether to trust or act on a recommendation."
+            beforeTitle="A score without its chain of evidence"
+            beforeSummary="Users could see an overall result, but not which connected sources influenced it or why."
+            beforeItems={['Overall score: 72', 'Contribution: unclear', 'Next action: investigate manually']}
+            afterTitle="A score users can inspect"
+            afterSummary="The report connects each result to selected sources, contribution status, reasoning, and guidance."
+            afterItems={['Score: 72 · Growing', 'Contributed: Git + Jira evidence', 'Recommendation: source-linked next step']}
+          />
+
           <section className="space-y-5">
             <h2 className="text-2xl font-bold text-[var(--color-brand)]">System flow</h2>
             <ol className="grid gap-3 md:grid-cols-4">
               {systemSteps.map(([name, description], index) => (
                 <li key={name} className="relative rounded-xl border border-indigo-100 bg-indigo-50/60 p-4">
-                  <span className="text-xs font-bold uppercase tracking-wide text-indigo-500">0{index + 1}</span>
+                  <span className="text-xs font-bold uppercase tracking-wide text-indigo-600">0{index + 1}</span>
                   <h3 className="mt-2 font-bold text-[var(--color-brand)]">{name}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-gray-600">{description}</p>
                 </li>
@@ -70,13 +84,25 @@ export default function ContextMeshCaseStudy({ onBack }) {
           </section>
 
           <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-[var(--color-brand)]">Trade-off and measurable result</h2>
+            <div className="grid gap-4 md:grid-cols-2">
+              <div className="rounded-xl border border-amber-200 bg-amber-50 p-5"><h3 className="font-bold text-amber-950">Trade-off</h3><p className="mt-2 text-amber-950/80">Durable asynchronous work, targeted indexes, and evidence validation add database, model, and operational complexity. I accepted that cost to avoid request timeouts, misleading explanations, and duplicate processing at production scale.</p></div>
+              <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5"><h3 className="font-bold text-emerald-950">Measured scope</h3><p className="mt-2 text-emerald-950/80"><strong>4 repositories and 5 context types</strong> now participate in one traceable path from ingestion to a source-aware score and recommendation.</p></div>
+            </div>
+          </section>
+
+          <section className="space-y-4">
             <h2 className="text-2xl font-bold text-[var(--color-brand)]">Operating long-running work in production</h2>
             <p>Context ingestion and scoring can outlive a browser request and must recover safely from timeouts, restarts, and partial failures. My work included the production controls around those workflows rather than only their final UI.</p>
             <div className="grid gap-4 md:grid-cols-2">
               <div className="rounded-xl border border-indigo-100 p-5"><h3 className="font-bold text-[var(--color-brand)]">Durable orchestration</h3><p className="mt-2 text-gray-600">PostgreSQL-backed dispatch, idempotent state transitions, retry and concurrency controls, stale-work protection, and indexes for high-volume preparation and cleanup paths.</p></div>
               <div className="rounded-xl border border-indigo-100 p-5"><h3 className="font-bold text-[var(--color-brand)]">Visible operations</h3><p className="mt-2 text-gray-600">Live processing status, structured telemetry, Application Insights dashboards, failure and queue alerts, deployment verification, and operational runbooks.</p></div>
             </div>
-            <p className="text-sm text-gray-500">The central tradeoff was accepting more background-processing complexity in exchange for fault tolerance, scalability, and a responsive user experience.</p>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-2xl font-bold text-[var(--color-brand)]">Accessibility evidence</h2>
+            <p>The shipped Context Mesh interface uses a semantic heading hierarchy, named regions and source lists, labeled sort and status controls, accessible row actions, and named confirmation dialogs. React Testing Library coverage queries those roles and accessible names directly, so regressions in the interface contract fail tests rather than relying only on visual review.</p>
           </section>
 
           <section className="space-y-3">

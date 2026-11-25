@@ -15,6 +15,15 @@ const CASE_STUDY_HASHES = {
   saas: '#/case-study/saas-onboarding-and-entitlements',
 };
 
+const CASE_STUDY_TITLES = {
+  bridge: 'CodeNexus Host-UI Bridge',
+  product: 'Feature Studio AI Workspace',
+  'context-mesh': 'Evidence-Grounded AI Recommendations',
+  saas: 'SaaS Onboarding and Entitlements',
+};
+
+const DEFAULT_DOCUMENT_TITLE = 'Shereen Punnassery | Frontend Software Engineer';
+
 const LEGACY_HASHES = {
   '#/case-study/intelligenic-ai-agent-to-ui-bridge': 'bridge',
   '#/case-study/intelligenic-product-frontend': 'product',
@@ -46,7 +55,16 @@ export default function App() {
   }, []);
 
   useLayoutEffect(() => {
-    if (activeCaseStudy) window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    if (!activeCaseStudy) return;
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    requestAnimationFrame(() => document.querySelector('#main-content h1')?.focus());
+  }, [activeCaseStudy]);
+
+  useEffect(() => {
+    document.title = activeCaseStudy
+      ? `${CASE_STUDY_TITLES[activeCaseStudy]} | Shereen Punnassery`
+      : DEFAULT_DOCUMENT_TITLE;
   }, [activeCaseStudy]);
 
   const scrollTo = (ref) => ref.current?.scrollIntoView({ behavior: 'smooth' });
@@ -72,13 +90,13 @@ export default function App() {
       <a href="#main-content" className="sr-only z-[100] rounded bg-white p-3 text-[var(--color-brand)] focus:not-sr-only focus:fixed focus:left-3 focus:top-3">Skip to content</a>
       <header className="fixed left-0 top-0 z-50 w-full bg-[#F9F9F9] shadow-md">
         <nav aria-label="Primary navigation" className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-4 py-3">
-          <button type="button" onClick={() => handleNavClick(homeRef)} className="hidden text-lg font-bold text-[#4338ca] transition hover:text-indigo-700 sm:block">Şhereen</button>
+          <button type="button" onClick={() => handleNavClick(homeRef)} className="hidden text-lg font-bold text-[#4338ca] transition hover:text-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand)] sm:block">Şhereen</button>
           <ul className="flex flex-1 items-center justify-between gap-2 text-sm sm:flex-none sm:justify-start sm:gap-5 sm:text-base">
-            <li><button type="button" onClick={() => handleNavClick(homeRef)} className="font-medium text-gray-700 hover:text-[#4338ca]">Home</button></li>
-            <li><button type="button" onClick={() => handleNavClick(aboutRef)} className="font-medium text-gray-700 hover:text-[#4338ca]">About</button></li>
-            <li><button type="button" onClick={() => handleNavClick(projectsRef)} className="font-medium text-gray-700 hover:text-indigo-600">Work</button></li>
-            <li><button type="button" onClick={() => handleNavClick(experienceRef)} className="font-medium text-gray-700 hover:text-indigo-600">Experience</button></li>
-            <li><a href="https://github.com/pshereen" target="_blank" rel="noopener noreferrer" className="font-medium text-gray-700 hover:text-indigo-600">GitHub<span className="sr-only"> (opens in a new tab)</span></a></li>
+            <li><button type="button" onClick={() => handleNavClick(homeRef)} className="font-medium text-gray-700 hover:text-[#4338ca] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand)]">Home</button></li>
+            <li><button type="button" onClick={() => handleNavClick(aboutRef)} className="font-medium text-gray-700 hover:text-[#4338ca] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand)]">About</button></li>
+            <li><button type="button" onClick={() => handleNavClick(projectsRef)} className="font-medium text-gray-700 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand)]">Work</button></li>
+            <li><button type="button" onClick={() => handleNavClick(experienceRef)} className="font-medium text-gray-700 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand)]">Experience</button></li>
+            <li><a href="https://github.com/pshereen" target="_blank" rel="noopener noreferrer" className="font-medium text-gray-700 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand)]">GitHub<span className="sr-only"> (opens in a new tab)</span></a></li>
           </ul>
         </nav>
       </header>

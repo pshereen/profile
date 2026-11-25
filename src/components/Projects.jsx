@@ -105,7 +105,7 @@ export default function Projects({ onOpenCaseStudy }) {
           <button key={study.id} type="button" onClick={() => onOpenCaseStudy(study.id)} className="group flex h-full flex-col rounded-2xl bg-white p-5 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-lime-200 md:p-6">
             <ProjectVisual variant={study.visual} />
             <div className="mt-6 flex flex-1 flex-col gap-3">
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-indigo-500">{study.eyebrow}</p>
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-indigo-600">{study.eyebrow}</p>
               <h3 className="text-xl font-bold text-[var(--color-brand)]">{study.title}</h3>
               <p className="text-sm leading-relaxed text-gray-700">{study.description}</p>
               <ul className="mt-1 flex flex-wrap gap-2" aria-label="Technologies used">

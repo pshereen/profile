@@ -1,3 +1,5 @@
+import EvidenceComparison from './EvidenceComparison';
+
 const facts = [
   ['Focus', 'Self-service access'],
   ['Backend', 'Python · PostgreSQL'],
@@ -13,8 +15,8 @@ export default function SaaSReliabilityCaseStudy({ onBack }) {
 
         <article className="space-y-9 rounded-2xl bg-white p-6 text-gray-800 shadow-xl md:p-10">
           <header>
-            <p className="mb-3 font-semibold uppercase tracking-[0.18em] text-indigo-500">Full-stack reliability case study</p>
-            <h1 className="text-3xl font-extrabold text-[var(--color-brand)] md:text-5xl">Reliable onboarding, subscriptions, and product access</h1>
+            <p className="mb-3 font-semibold uppercase tracking-[0.18em] text-indigo-600">Full-stack reliability case study</p>
+            <h1 tabIndex={-1} className="text-3xl font-extrabold text-[var(--color-brand)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-500 md:text-5xl">Reliable onboarding, subscriptions, and product access</h1>
             <p className="mt-5 max-w-4xl text-lg leading-relaxed text-gray-600">I worked across the customer journey from sign-up and plan selection to webhook processing, entitlement recovery, protected routes, account deletion, analytics attribution, and external project integrations.</p>
           </header>
 
@@ -26,6 +28,18 @@ export default function SaaSReliabilityCaseStudy({ onBack }) {
             <h2 className="text-2xl font-bold text-[var(--color-brand)]">Why this work mattered</h2>
             <p>Payment and identity systems are distributed workflows. A successful checkout does not guarantee that every webhook, database write, browser redirect, or role update succeeds at the same time. The interface needed clear access states, while the backend needed durable recovery rather than assuming the happy path.</p>
           </section>
+
+          <EvidenceComparison
+            id="saas-reliability-comparison"
+            title="From callback-dependent access to durable recovery"
+            description="The reliable path treats the browser redirect as feedback—not as the source of truth for a customer’s entitlement."
+            beforeTitle="Checkout succeeds, access remains uncertain"
+            beforeSummary="A lost callback or partial write can leave payment, subscription state, and the visible product state out of sync."
+            beforeItems={['Checkout: successful', 'Webhook effect: unknown', 'Product access: pending']}
+            afterTitle="Every event has a recovery path"
+            afterSummary="Verified events are persisted before processing, then retried and reconciled independently of the browser session."
+            afterItems={['Signature verified', 'Event persisted + processed', 'Entitlement reconciled']}
+          />
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-[var(--color-brand)]">Capabilities delivered</h2>
@@ -59,6 +73,19 @@ export default function SaaSReliabilityCaseStudy({ onBack }) {
               </ol>
             </div>
             <p>This design separates receiving an external event from applying its business effects. If a downstream dependency fails, the event remains available for retry and the reconciliation path can restore the user&apos;s entitlement.</p>
+          </section>
+
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-[var(--color-brand)]">Trade-off and measurable result</h2>
+            <div className="grid gap-4 md:grid-cols-2">
+              <div className="rounded-xl border border-amber-200 bg-amber-50 p-5"><h3 className="font-bold text-amber-950">Trade-off</h3><p className="mt-2 text-amber-950/80">Persisting events and reconciling access asynchronously adds a worker, database state, and monitoring compared with handling everything inside a webhook request. It prevents transient provider or application failures from permanently stranding a paid user.</p></div>
+              <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5"><h3 className="font-bold text-emerald-950">Measured scope</h3><p className="mt-2 text-emerald-950/80">A <strong>5-stage recovery path</strong> connects verified payment events to restored access, with retry coverage for unauthorized, expired-session, partial-failure, and replay scenarios.</p></div>
+            </div>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-2xl font-bold text-[var(--color-brand)]">Accessibility evidence</h2>
+            <p>Authentication and entitlement screens announce initialization with polite status regions and expose denial or recovery failures as alerts. Permission-gated controls communicate disabled state, named actions remain keyboard reachable, and tests query sign-in, authorization, refresh, retry, and access-denied behavior by semantic role and accessible name.</p>
           </section>
 
           <section className="space-y-3">

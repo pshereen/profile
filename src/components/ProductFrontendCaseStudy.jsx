@@ -1,3 +1,5 @@
+import EvidenceComparison from './EvidenceComparison';
+
 const facts = [
   ['Focus', 'Complex product state'],
   ['Frontend', 'React · TypeScript · Redux'],
@@ -20,8 +22,8 @@ export default function ProductFrontendCaseStudy({ onBack }) {
 
         <article className="space-y-9 rounded-2xl bg-white p-6 text-gray-800 shadow-xl md:p-10">
           <header>
-            <p className="mb-3 font-semibold uppercase tracking-[0.18em] text-indigo-500">Stateful product experience case study</p>
-            <h1 className="text-3xl font-extrabold text-[var(--color-brand)] md:text-5xl">Feature Studio: a dependable AI workflow</h1>
+            <p className="mb-3 font-semibold uppercase tracking-[0.18em] text-indigo-600">Stateful product experience case study</p>
+            <h1 tabIndex={-1} className="text-3xl font-extrabold text-[var(--color-brand)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-500 md:text-5xl">Feature Studio: a dependable AI workflow</h1>
             <p className="mt-5 max-w-4xl text-lg leading-relaxed text-gray-600">I redesigned and evolved the workspace where users navigate product hierarchies, generate structured work products, review progress, and move between the AI assistant and document editor without losing context.</p>
           </header>
 
@@ -33,6 +35,18 @@ export default function ProductFrontendCaseStudy({ onBack }) {
             <h2 className="text-2xl font-bold text-[var(--color-brand)]">The interaction challenge</h2>
             <p>A single user action could depend on the active product, feature, user story, SDLC stage, route, work-product state, editor content, uploaded files, and a long-running backend job. When those inputs drifted apart, users saw stale cards, the wrong hierarchy, repeated prompts, or progress attached to another context.</p>
           </section>
+
+          <EvidenceComparison
+            id="feature-studio-comparison"
+            title="From hidden generation to visible workflow state"
+            description="The redesigned experience keeps hierarchy, work-product identity, progress, and recovery together instead of asking users to infer what a spinner means."
+            beforeTitle="Generation without enough context"
+            beforeSummary="A generic busy state gave users little confidence about which artifact was changing or whether work had stalled."
+            beforeItems={['Generating…', 'Selected hierarchy: unclear', 'Failure recovery: refresh and retry']}
+            afterTitle="Progress attached to the selected artifact"
+            afterSummary="Stable context and explicit states make long-running work understandable without blocking the rest of the interface."
+            afterItems={['Product → Feature → Story', 'Generating section 8 of 14', 'Cancel and retry remain available']}
+          />
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-[var(--color-brand)]">Workspace architecture</h2>
@@ -65,6 +79,19 @@ export default function ProductFrontendCaseStudy({ onBack }) {
           <section className="space-y-3">
             <h2 className="text-2xl font-bold text-[var(--color-brand)]">Testing and delivery</h2>
             <p>I added unit and interaction coverage around component states, hierarchy behavior, bridge actions, route transitions, and regressions discovered in production. The application moves through environment-specific pipelines, so implementation work included verification and release follow-through rather than stopping at a visual handoff.</p>
+          </section>
+
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-[var(--color-brand)]">Trade-off and measurable result</h2>
+            <div className="grid gap-4 md:grid-cols-2">
+              <div className="rounded-xl border border-amber-200 bg-amber-50 p-5"><h3 className="font-bold text-amber-950">Trade-off</h3><p className="mt-2 text-amber-950/80">I kept normalized, server-backed entities in Redux while using local state machines for transient feedback. Two state layers require disciplined boundaries, but avoid global-store churn and keep fast interaction feedback close to the component.</p></div>
+              <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5"><h3 className="font-bold text-emerald-950">Measured scope</h3><p className="mt-2 text-emerald-950/80">The workspace unifies a <strong>3-level product hierarchy</strong> with <strong>4 explicit workflow states</strong>—idle, generating, ready, and recovery—plus section-level progress.</p></div>
+            </div>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-2xl font-bold text-[var(--color-brand)]">Accessibility evidence</h2>
+            <p>Interactive workflow controls use native buttons or accessible MUI primitives, named regions, labeled tables and selectors, <code>aria-pressed</code> for selected actions, and determinate progress bars with current, minimum, and maximum values. Status, completion, and failure states use live semantic roles, while retry, cancel, close, and navigation controls retain keyboard access and explicit names. Role-based tests verify these contracts.</p>
           </section>
 
           <section className="space-y-3">

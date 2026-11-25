@@ -1,3 +1,5 @@
+import EvidenceComparison from './EvidenceComparison';
+
 const facts = [
   ['Focus', 'Reusable frontend architecture'],
   ['Shared packages', 'React · TypeScript · MUI'],
@@ -20,8 +22,8 @@ export default function IntelligenicCaseStudy({ onBack }) {
 
         <article className="space-y-9 rounded-2xl bg-white p-6 text-gray-800 shadow-xl md:p-10">
           <header>
-            <p className="mb-3 font-semibold uppercase tracking-[0.18em] text-indigo-500">Frontend platform case study</p>
-            <h1 className="text-3xl font-extrabold text-[var(--color-brand)] md:text-5xl">A safe bridge between AI intent and product UI</h1>
+            <p className="mb-3 font-semibold uppercase tracking-[0.18em] text-indigo-600">Frontend platform case study</p>
+            <h1 tabIndex={-1} className="text-3xl font-extrabold text-[var(--color-brand)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-500 md:text-5xl">A safe bridge between AI intent and product UI</h1>
             <p className="mt-5 max-w-4xl text-lg leading-relaxed text-gray-600">I designed and implemented the shared CodeNexus contracts and React packages, then built the Intelligenic host adapter that discovers approved interface elements and turns natural-language requests into visible, bounded product actions.</p>
           </header>
 
@@ -34,6 +36,18 @@ export default function IntelligenicCaseStudy({ onBack }) {
             <p>The embedded agent could answer questions and edit documents, but it could not reliably complete ordinary interface actions such as opening a tab, navigating to a product area, or activating a work-product card. Direct arbitrary DOM control would have been brittle, difficult to test, and unsafe.</p>
             <p>The system needed a narrow public contract that could serve different host applications without coupling the shared package to one product&apos;s routes, components, or design system.</p>
           </section>
+
+          <EvidenceComparison
+            id="host-bridge-comparison"
+            title="From passive guidance to bounded product action"
+            description="The bridge replaced fragile assumptions about the page with an explicit, application-owned action contract."
+            beforeTitle="The assistant describes the next step"
+            beforeSummary="A user receives instructions but must locate the correct control and complete the action manually."
+            beforeItems={['“Open the work product tab”', 'Page state: unknown', 'Permission boundary: implicit']}
+            afterTitle="The product exposes approved actions"
+            afterSummary="The agent discovers only visible, enabled, registered controls and returns structured execution feedback."
+            afterItems={['Discover: 6 approved actions', 'Validate: visible + enabled', 'Activate: bounded action with result']}
+          />
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-[var(--color-brand)]">Layered architecture</h2>
@@ -62,6 +76,19 @@ export default function IntelligenicCaseStudy({ onBack }) {
               <li><strong>Context stays bounded:</strong> enabled and visible actions are prioritized before a fixed cap is applied.</li>
               <li><strong>Presentation is replaceable:</strong> applications can use the default MUI renderers or supply their own.</li>
             </ul>
+          </section>
+
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-[var(--color-brand)]">Trade-off and measurable result</h2>
+            <div className="grid gap-4 md:grid-cols-2">
+              <div className="rounded-xl border border-amber-200 bg-amber-50 p-5"><h3 className="font-bold text-amber-950">Trade-off</h3><p className="mt-2 text-amber-950/80">Requiring host applications to annotate and maintain approved controls takes more integration work than unrestricted DOM automation. The explicit boundary makes actions safer, testable, permission-aware, and resilient to UI changes.</p></div>
+              <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5"><h3 className="font-bold text-emerald-950">Measured scope</h3><p className="mt-2 text-emerald-950/80"><strong>1 shared contract across 4 architectural layers</strong> supports at least <strong>7 classes of product interaction</strong>, from navigation and forms to document and long-running workflows.</p></div>
+            </div>
+          </section>
+
+          <section className="space-y-3">
+            <h2 className="text-2xl font-bold text-[var(--color-brand)]">Accessibility evidence</h2>
+            <p>The shared React UI includes keyboard-operated slash-command navigation, semantic listbox and option roles, <code>aria-selected</code> state, named icon buttons, visible focus treatment, and assertive live-region recovery alerts. Component tests locate controls by role and accessible name and verify selected, disabled, retry, approval, and dismissal behavior.</p>
           </section>
 
           <section className="space-y-3">
